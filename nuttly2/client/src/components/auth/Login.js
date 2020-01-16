@@ -4,16 +4,45 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Navbar,Modal, Button, Form, Card, ListGroup, Row, Col, ButtonGroup, Container, Nav, ButtonToolbar} from 'react-bootstrap';
+
 
 class Login extends Component {
+  
   constructor() {
     super();
     this.state = {
+      showLoginForm: false,
+    showSecondModal: false,
       email: "",
       password: "",
-      errors: {}
+      errors: {},
+      error: null
     };
   }
+  handleCloseLoginForm  = event => {
+    this.setState({showLoginForm: false});
+//
+   };
+ 
+   handleShowLoginForm  = event => {
+     this.setState({showLoginForm: true});
+    };
+ 
+   handleCloseSecondModal  = event => {
+    this.setState({showSecondModal: false});
+   };
+ 
+   handleShowSecondModal  = event => {
+     this.setState({showSecondModal: true});
+   };
+ 
+   
+   
+
+  
+
 
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
@@ -50,27 +79,69 @@ class Login extends Component {
   };
 
   render() {
+    
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Login</b> below
-              </h4>
+      <>
+    <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between">
+      
+        
+        
+        
+         
+          <div className="events">
+          
+           </div>    
+                <div className="containerCount">
+                
+          <div className="header">
+            Nuttly
+          </div>
+          
+          
+          
+            
+           
+       
+           </div>     
+          <ButtonToolbar>
+            {/* <Button  className="SecondModal" onClick={this.handleShowSecondModal}>Second Modal</Button> */}
+            
+
+            
+            <Button className="eventButtonLogin" onClick={this.handleShowLoginForm}>Login</Button>
+           
+            
+            </ButtonToolbar>
+
+
+        
+         
+          
+      </Navbar>
+
+    <Modal show={this.state.showLoginForm} onHide={this.handleCloseLoginForm}>
+    <Modal.Header className="modalHeader" closeButton>
+  
+            <div style={{ textAlign: "center" }}></div>
+      <Modal.Title>  <h4> <b>Login</b> below</h4></Modal.Title>
+    </Modal.Header>
+    <div className="col md-6" style={{ paddingLeft: "11.250px" }}>
+              
+          
               <p className="grey-text text-darken-1">
                 Don't have an account? <Link to="/register">Register</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
+    <Modal.Body style={{'max-height': 'calc(100vh - 210px)', 'overflow-y': 'auto'}}>
+        <Form className="modalBody">
+
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control noValidate onSubmit={this.onSubmit}
+             
+                
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
@@ -80,14 +151,17 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
-              </div>
-              <div className="input-field col s12">
-                <input
+              
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control   noValidate onSubmit={this.onSubmit}   
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
@@ -97,14 +171,16 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+               
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
                 </span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+              
+        </Form.Group>
+        <form noValidate onSubmit={this.onSubmit}>
+   
+              <Button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -115,15 +191,49 @@ class Login extends Component {
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Login
-                </button>
-              </div>
+                </Button>
+              {/* </div> */}
             </form>
-          </div>
-        </div>
-      </div>
+
+      
+
+      </Form>
+    </Modal.Body>
+
+  
+    </Modal>
+
+    {/* <Modal show={this.state.showSecondModal} onHide={this.handleCloseSecondModal}>
+    <Modal.Header className="modalHeader" closeButton>
+      <Modal.Title>nuttlyproducts</Modal.Title>
+    </Modal.Header>
+  
+    <Modal.Body style={{'max-height': 'calc(100vh - 210px)', 'overflow-y': 'auto'}}>
+      <Card>
+        <Card.Body>
+          <Card.Title>second modal</Card.Title>
+            <ListGroup variant="flush">
+              
+              <ListGroup.Item>
+                <b>Description:</b> content
+              </ListGroup.Item>
+            </ListGroup>
+        </Card.Body>
+      </Card>
+          
+    </Modal.Body>
+  
+    <Modal.Footer className="modalFooter">
+      <Button variant="secondary" onClick={this.handleCloseSecondModal} >Close</Button>
+    </Modal.Footer>
+    </Modal> */}
+    
+    
+      </>
     );
   }
 }
+
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
