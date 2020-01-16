@@ -6,7 +6,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-fixed">
-        <nav className="z-depth-3">
+        <nav className="shadow p-3 mb-5 bg-white rounded">
           <div className="nav-wrapper white">
             <Link
               to="/"
@@ -15,7 +15,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo center black-text"
             >
-            Nuttly
+            
             
             </Link>  
              
@@ -29,8 +29,8 @@ class Navbar extends Component {
                 className="col s7  right waves-effect white black-text"
               
               >
-                Admin
-              </Link>
+                Log In
+              </Link> 
               
             
           </div>
@@ -38,7 +38,7 @@ class Navbar extends Component {
 
         </nav>
       </div>
-    );
+    )
   }
 }
 
