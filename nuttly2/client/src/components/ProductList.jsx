@@ -3,7 +3,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from "../actions/storeActions";
+import { ListGroup,Modal,Button,Card} from "react-bootstrap";
 import BuyButton from './BuyButton';
+import Product from './Product';
 
 class ProductList extends Component {
   // constructor(props) {
@@ -32,9 +34,13 @@ class ProductList extends Component {
 
   componentDidMount(){
       this.getProducts()
-  }
+  };
       
-  
+  handleClose = () => {this.setState({show:false})}
+  handleShow = () => {
+    console.log('called ')  
+    this.setState({show:true})
+  }
 
   getProducts = () => {
     API.getProducts()
@@ -61,16 +67,15 @@ class ProductList extends Component {
           <div className="ProductList-container">
             {this.state.products.map((product, index) => {
               return (
-                <div className="ProductList-product" key={product.id}>
-                  <Link to={`/product/${product.id}`}>
-                    <h3>{product.name}</h3>
-                    <img src={product.imageURL} alt={product.name} /> 
-                  </Link>
-                  <BuyButton product={product} />
-                </div>
+                <Product
+                  product = {product} key = {index}
+                />
+
               );
             })}
           </div>
+
+
         </div>
       );
     }
