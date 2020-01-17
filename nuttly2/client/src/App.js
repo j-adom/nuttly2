@@ -9,11 +9,11 @@ import store from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
-import Orders from "./components/orders/Orders"
+import Register from "./components/admin/auth/Register";
+import Login from "./components/admin/auth/Login";
+import PrivateRoute from "./components/admin/private-route/PrivateRoute";
+import Dashboard from "./components/admin/dashboard/Dashboard";
+import Orders from "./components/admin/orders/Orders"
 
 import "./App.css";
 

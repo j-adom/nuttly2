@@ -6,21 +6,47 @@ import API from "../actions/storeActions";
 import BuyButton from './BuyButton';
 
 class Product extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = { loading: true, product: {} }
-  }
+  //   this.state = { loading: true, product: {} }
+  // }
 
-  async componentDidMount() {
-    let id = this.props.match.params.id
-    let response = await API.getProduct(id)
-    let data = await response.json()
-    this.setState({
-      loading: false,
-      product: data
-    })
+  // async componentDidMount() {
+  //   let id = this.props.match.params.id
+  //   let response = await API.getProduct(id)
+  //   let data = await response.json()
+  //   this.setState({
+  //     loading: false,
+  //     product: data
+  //   })
+  // }
+
+  state = {
+    products: [],
+  };
+
+  componentDidMount(){
+      this.getProduct(id)
   }
+      
+  
+
+  getProducts = () => {
+    API.getProduct(id)
+      .then(res =>
+        this.setState({
+          products: res.data
+        })
+      )
+      .catch(() =>
+        this.setState({
+          product: [],
+          message: "No items found!"
+        })
+      );
+  };
+
 
   render() {
     if (!this.state.loading) {

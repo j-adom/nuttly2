@@ -6,25 +6,51 @@ import API from "../actions/storeActions";
 import BuyButton from './BuyButton';
 
 class ProductList extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      loading: true,
-      products: []
-    }
+  //   this.state = {
+  //     loading: true,
+  //     products: []
+  //   }
+  // }
+
+  // async componentDidMount() {
+  //   let response = await API.getProducts()
+  //   if(!response.ok){
+  //     return
+  //   }
+
+  //   let products = await response.json()
+  //   this.setState({ loading: false, products: products })
+  //   console.log(this.state.products[0])
+  // }
+
+  state = {
+    products: [],
+  };
+
+  componentDidMount(){
+      this.getProducts()
   }
+      
+  
 
-  async componentDidMount() {
-    let response = await API.getProducts()
-    if(!response.ok){
-      return
-    }
+  getProducts = () => {
+    API.getProducts()
+      .then(res =>
+        this.setState({
+          products: res.data
+        })
+      )
+      .catch(() =>
+        this.setState({
+          products: [],
+          message: "No items found!"
+        })
+      );
+  };
 
-    let products = await response.json()
-    this.setState({ loading: false, products: products })
-    console.log(this.state.products[0])
-  }
 
   //creates list of existing products, need to add correct address here
   render() {
