@@ -17,12 +17,14 @@ app.use(
 app.use(bodyParser.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const dbLocal = require("./config/keys").mongoURI;
+const dbProduction = require("./config/keys").MONGOLAB_URI;
+
 
 // Connect to MongoDB
 mongoose
   .connect(
-    db,
+    (dbLocal || dbProduction),
     { useNewUrlParser: true, useCreateIndex: true }
   )
   .then(() => console.log("MongoDB successfully connected"))
