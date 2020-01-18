@@ -6,20 +6,12 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-fixed">
-        <nav className="shadow p-3 mb-5 bg-white rounded">
+        <nav className="shadow p-3 mb-5 bg-white rounded-flex p-2">
           <div className="nav-wrapper white">
-            <Link
-              to="/"
-              style={{
-                fontFamily: "monospace"
-              }}
-              className="col s5 brand-logo center black-text"
-            >
             
-            
-            </Link>  
              
-            <Link 
+             
+            {/* <Link 
                 to="/login"
                 style={{
                   width: "140px",
@@ -31,6 +23,15 @@ class Navbar extends Component {
               >
                 Log In
               </Link> 
+              <Link
+              to="/"
+              style={{
+                fontFamily: "monospace"
+              }}
+              className="col md-9 center black-text"
+            >Nuttly
+          
+            </Link> */}
               
             
           </div>

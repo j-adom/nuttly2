@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import {Navbar,Modal, Button, Form, Card, ListGroup, Row, Col, ButtonGroup, Container, Nav, ButtonToolbar} from 'react-bootstrap';
-
+import Jumbotron from "../jumbotron/Jumbotron.js";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -62,6 +62,8 @@ class Dashboard extends Component {
      
       
   </Navbar>
+  <Jumbotron></Jumbotron>
+  
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
