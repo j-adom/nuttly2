@@ -12,7 +12,7 @@ class Orders extends Component {
                 <span style={{ fontFamily: "monospace" }}>Orders for Delivery</span>
               </h4>
                 <br />
-                <Link
+                <h2><Link
                 to="/dashboard"
                 style={{
                   width: "150px",
@@ -23,7 +23,7 @@ class Orders extends Component {
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
                 Orders
-              </Link>
+              </Link></h2>
               </div>
             </div>
           </div>

@@ -70,9 +70,11 @@ class ProductList extends Component {
                 <div className="ProductList-product" key={product._id}>
                   <Link to={`/product/${product._id}`}>
                     <h3>{product.name}</h3>
-                    <img src={`https://lit-crag-95157.herokuapp.com${product.imageURL}`} alt={product.name} />
+                    <img src={`https://lit-crag-95157.herokuapp.com${product.imageURL}`} alt={product.name} height="400px" className="thumbnail" />
                   </Link>
+                  <br></br>
                   <BuyButton product={product} />
+                  <br></br>
                 </div>
               );
             })}

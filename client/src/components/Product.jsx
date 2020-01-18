@@ -108,7 +108,7 @@ export default class Product extends Component {
         <div className="product">
           <div className="product__information">
             <h2 className="Product-title">{this.state.product.name}</h2>
-            <img src={`https://lit-crag-95157.herokuapp.com/${this.state.product.imageURL}`} />
+            <img src={`https://lit-crag-95157.herokuapp.com/${this.state.product.imageURL}`} height="400px" className="thumbnail" />
             
             <button
                 className="snipcart-add-item BuyButton"
