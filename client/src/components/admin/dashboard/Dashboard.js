@@ -17,7 +17,7 @@ class Dashboard extends Component {
 
     return (
       <>
-      <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between">
+    <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between shadow p-3 mb-5 bg-white rounded-flex p-2">
       <b>Welcome: {user.name.split(" ")[0]}</b>
         
         
@@ -27,9 +27,11 @@ class Dashboard extends Component {
       
        </div>    
             <div className="containerCount">
+
+              
             
       <div className="header">
-        Nuttly
+        
       </div>
       
       
@@ -65,6 +67,13 @@ class Dashboard extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
+
+            <br>
+            </br>
+            <br></br>
+            <br></br>
+            <br>
+            </br>
             {/* <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">

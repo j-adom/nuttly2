@@ -87,7 +87,7 @@ class Landing extends Component {
 
     return (
       <>
-    <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between">
+    <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between shadow p-3 mb-5 bg-white rounded-flex p-2">
       
         
         
@@ -123,8 +123,11 @@ class Landing extends Component {
          
           
       </Navbar>
+      <br></br>
+      <br></br>
       <div className="App">
         <main className="App-content">
+          <br></br>
           <Switch>
             <Route path="/" exact component={ProductList} />
             {/* <Route path="/product/:id" component={Product} /> */}
