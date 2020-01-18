@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import API from "../actions/storeActions";
-import { ListGroup,Modal,Button,Card} from "react-bootstrap";
+import { ListGroup,Modal,Button,Card,CardDeck} from "react-bootstrap";
 import BuyButton from './BuyButton';
 import Product from './Product';
 
@@ -65,20 +65,42 @@ class ProductList extends Component {
         <div className="ProductList">
           <h2 className="ProductList-title">Available Products ({this.state.products.length})</h2>
           <div className="ProductList-container">
+          <CardDeck>
+
             {this.state.products.map((product, index) => {
               return (
+              
+
+                <Card>
+           
+                {/* <Card.Body>
+                  <Card.Title>Card title</Card.Title> */}
+                  {/* <Card.Text>
+                    This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.
+                  </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </Card.Footer> */}
+                
                 <div className="ProductList-product" key={product._id}>
                   <Link to={`/product/${product._id}`}>
                     <h3>{product.name}</h3>
-                    <img src={`https://lit-crag-95157.herokuapp.com${product.imageURL}`} alt={product.name} height="400px" className="thumbnail" />
+                    <Card.Img src={`https://lit-crag-95157.herokuapp.com${product.imageURL}`} alt={product.name} height="400px" className="thumbnail" />
                   </Link>
                   <br></br>
                   <BuyButton product={product} />
                   <br></br>
                 </div>
+                </Card>
+
+
               );
             })}
             
+            </CardDeck>
+
           </div>
 
 
