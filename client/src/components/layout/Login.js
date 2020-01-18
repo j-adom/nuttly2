@@ -248,7 +248,7 @@ class Landing extends Component {
 }
 
 
-Landing.propTypes = {
+Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
