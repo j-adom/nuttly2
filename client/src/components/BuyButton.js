@@ -9,12 +9,12 @@ class BuyButton extends Component {
         super(props);
 
         this.state = {
-            id: props.product.id,
+            id: props.product._id,
             name: props.product.name,
             price: props.product.price,
             weight: props.product.weight,
             description: props.product.description,
-            url: "http://localhost:1337/snipcartParser"
+            url: '/api/products/'+props.product.id
         }
     }
 
@@ -22,10 +22,9 @@ class BuyButton extends Component {
         return (
             <button
                 className="snipcart-add-item BuyButton"
-                data-item-id={this.state.id}
+                data-item-id={this.state._id}
                 data-item-name={this.state.name}
                 data-item-price={this.state.price}
-                data-item-weight={this.state.weight}
                 data-item-url={this.state.url}
                 data-item-description={this.state.description}
                 data-item-payment-interval="Week"

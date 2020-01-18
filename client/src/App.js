@@ -9,6 +9,7 @@ import store from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
+import Product from "./components/Product";
 import Register from "./components/admin/auth/Register";
 import Login from "./components/admin/auth/Login";
 import PrivateRoute from "./components/admin/private-route/PrivateRoute";
@@ -44,6 +45,7 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
+            <Route exact path="/product/:id" component={Product} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>

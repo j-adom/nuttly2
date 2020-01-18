@@ -67,18 +67,22 @@ class ProductList extends Component {
           <div className="ProductList-container">
             {this.state.products.map((product, index) => {
               return (
-                <Product
-                  product = {product} key = {index}
-                />
-
+                <div className="ProductList-product" key={product._id}>
+                  <Link to={`/product/${product._id}`}>
+                    <h3>{product.name}</h3>
+                    <img src={`https://lit-crag-95157.herokuapp.com${product.imageURL}`} alt={product.name} />
+                  </Link>
+                  <BuyButton product={product} />
+                </div>
               );
             })}
+            
           </div>
 
 
         </div>
-      );
-    }
+      )};
+    
 
     return (<h2 className="ProductList-title">Waiting for API...</h2>);
   }
