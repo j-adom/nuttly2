@@ -43,9 +43,8 @@ var Product = require('../models/product');
       var newProduct = new Product(product);
       newProduct.save();
     }
-  
     // seeded!
     res.send('Database seeded!');
-  }
+}
 
   export default seedProducts;
