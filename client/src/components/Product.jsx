@@ -4,8 +4,11 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import API from "../actions/storeActions";
-import { ListGroup,Modal,Button,Card} from "react-bootstrap";
+import {Navbar, ButtonToolbar,Col,Row,ListGroup,Modal,Button,Card,Container,CardHeadery} from "react-bootstrap";
 import BuyButton from './BuyButton';
+// import logoImage from './images/nuttlylogoheader.png';
+import logoImage from './layout/images/nuttlylogoheader.png';
+import {Landing} from './layout/Landing'
 
 // export default class Product extends Component {
 //   constructor(props) {
@@ -105,12 +108,46 @@ export default class Product extends Component {
   render() {
     if (!this.state.loading) {
       return (
-        <div className="product">
+        <>
+        <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between shadow p-3 mb-5 bg-white rounded-flex p-2">
+        <div className="events">
+        </div>
+        <div className="containerCount">
+          <div className="header">
+            <Link to="/">
+
+            <img src={logoImage}
+              width="338"
+              height="88"
+              className="pr-2"
+              alt="">
+            </img>
+            </Link>
+          </div>
+        </div>
+        <ButtonToolbar>
+          {/* <Button  className="RegistrationModal" onClick={this.handleShowRegistrationModal}>Registration Modal</Button> */}
+
+         
+
+        </ButtonToolbar>
+      </Navbar>
+        <br>
+        </br>
+        <br></br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
           <div className="product__information">
-            <h2 className="Product-title">{this.state.product.name}</h2>
-            <img src={`https://lit-crag-95157.herokuapp.com/${this.state.product.imageURL}`} height="400px" className="thumbnail" />
-            
-            <button
+            <Card>
+            <Container> 
+         <Row> 
+        <Col><h2 className="Product-title">{this.state.product.name}</h2>
+        </Col> 
+        <Col>  <Button
                 className="snipcart-add-item BuyButton"
                 data-item-id={this.state.product._id}
                 data-item-name={this.state.product.name}
@@ -120,12 +157,24 @@ export default class Product extends Component {
                 data-item-payment-interval="Week"
                 data-item-payment-interval-count="1">
                 ADD TO CART ({this.state.product.price}$)
-            </button>
-          </div>
-          <div className="product__description">
+            </Button>
+            </Col>
+            </Row> 
+          <Row> <Col> <img src={`https://lit-crag-95157.herokuapp.com/${this.state.product.imageURL}`} height="200px" className="thumbnail" />
+          
+          </Col>
+          <Col> <div className="product__description">
             {this.state.product.description}
           </div>
+          </Col>
+          </Row>
+          
+          
+          
+          </Container>
+          </Card>
         </div>
+        </>
       );
     }  
     return (<h2>Waiting for API...</h2>);

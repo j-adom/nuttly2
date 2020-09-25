@@ -14,8 +14,8 @@ import Register from "./components/admin/auth/Register";
 import Login from "./components/admin/auth/Login";
 import PrivateRoute from "./components/admin/private-route/PrivateRoute";
 import Dashboard from "./components/admin/dashboard/Dashboard";
-import Orders from "./components/admin/orders/Orders"
-
+import Orders from "./components/admin/orders/Orders";
+import Landingpage from"./pages/landing/index"
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -43,16 +43,21 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            {/* <Navbar /> */}
-            <Route exact path="/" component={Landing} />
+          {/* <Navbar/> */}
+          <Route exact path="/" component={Landing} />
+            
             <Route exact path="/product/:id" component={Product} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/test" component={Landingpage}/>
+            {/* <Route exact path="/orders" component={Orders}></Route> */}
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/orders" component={Orders} />
             </Switch>
+      
           </div>
+         
         </Router>
       </Provider>
     );

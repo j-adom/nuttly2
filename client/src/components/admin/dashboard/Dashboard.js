@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../../actions/authActions";
 import { Link } from "react-router-dom";
 import {Navbar,Modal, Button, Form, Card, ListGroup, Row, Col, ButtonGroup, Container, Nav, ButtonToolbar} from 'react-bootstrap';
-
+import logoImage from '../../layout/images/nuttlylogoheader.png';
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -17,18 +17,24 @@ class Dashboard extends Component {
 
     return (
       <>
+      
     <Navbar fixed="top" expand="lg" className="colorEvent justify-content-between shadow p-3 mb-5 bg-white rounded-flex p-2">
-      <b>Welcome: {user.name.split(" ")[0]}</b>
-        
-        
-        
-         
-      <div className="events">
+      <h3>Welcome: {user.name.split(" ")[0]}</h3>  
+      <div className="events" align="center">
       
        </div>    
             <div className="containerCount">
 
-              
+            <div  align="center" className="header">
+
+<img src={logoImage}
+  width="338"
+  height="88"
+  className="pr-2"
+  alt="">
+</img>
+
+</div> 
             
       <div className="header">
         
@@ -37,9 +43,12 @@ class Dashboard extends Component {
       
       
         
-       
-   
-       </div>     
+    </div> 
+    <br>
+       </br>
+<br></br>   
+    <br></br>  
+
       <ButtonToolbar>
         
 
@@ -75,7 +84,7 @@ class Dashboard extends Component {
             <br>
             </br>
             {/* <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              // <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
                 You are logged into {" "}
                 <span style={{ fontFamily: "monospace" }}>Nuttly</span>
@@ -83,7 +92,7 @@ class Dashboard extends Component {
             </h4> */}
       
             <Link
-                to="/home"
+                to="/orders"
                 style={{
                   width: "150px",
                   borderRadius: "3px",
@@ -92,7 +101,7 @@ class Dashboard extends Component {
                 }}
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
-               order
+               Orders
               </Link>
           </div>
         </div>

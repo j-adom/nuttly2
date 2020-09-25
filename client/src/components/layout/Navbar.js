@@ -1,46 +1,76 @@
-// import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+// import { SignUpButton } from './SignUpButton';
+import { Link } from 'react-router-dom';
+// import './Navbar.css';
+import Dropdown from '../Dropdown';
+import logoImage from '../layout/images/nuttlylogoheader.png';
 
 
-// class Navbar extends Component {
-//   render() {
-//     return (
-//       <div className="navbar-fixed">
-//         <nav className="shadow p-3 mb-5 bg-white rounded-flex p-2">
-//           <div className="nav-wrapper white">
-            
-             
-             
-//             {/* <Link 
-//                 to="/login"
-//                 style={{
-//                   width: "140px",
-//                   borderRadius: "3px",
-//                   letterSpacing: "1.5px"
-//                 }}
-//                 className="col s7  right waves-effect white black-text"
-              
-//               >
-//                 Log In
-//               </Link> 
-//               <Link
-//               to="/"
-//               style={{
-//                 fontFamily: "monospace"
-//               }}
-//               className="col md-9 center black-text"
-//             >Nuttly
+function Navbar() {
+  const [click, setClick] = useState(false);
+  
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  // const onMouseEnter = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(false);
+  //   } else {
+  //     setDropdown(true);
+  //   }
+  // };
+
+  // const onMouseLeave = () => {
+  //   if (window.innerWidth < 960) {
+  //     setDropdown(false);
+  //   } else {
+  //     setDropdown(false);
+  //   }
+  // };
+
+  return (
+    <>
+      <nav className='navbar'>
+        
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+         
+        
+        
+        <img
+                src={logoImage}
+                width="400"
+                height="120"
+                className="pr-2"
+                alt=""
+              />
+        </Link>
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+   
+         
+      
+        
           
-//             </Link> */}
-              
-            
-//           </div>
-          
+    
+        
+      
+          <li className='nav-item'>
+            <Link
+              // to='/sign-up'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Login
+            </Link>
+          </li>
+        </ul>
 
-//         </nav>
-//       </div>
-//     )
-//   }
-// }
+      </nav>
+    </>
+  );
+}
 
-// export default Navbar;
+export default Navbar;

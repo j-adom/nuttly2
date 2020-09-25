@@ -3,7 +3,7 @@
 //Also needs subscription related data-items and delivery day logic
 //How do we enforce delivery zip codes?
 import React, { Component } from 'react';
-
+import {Button} from 'react-bootstrap';
 class BuyButton extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class BuyButton extends Component {
 
     render() {
         return (
-            <button
+            <Button
                 className="snipcart-add-item BuyButton"
                 data-item-id={this.state._id}
                 data-item-name={this.state.name}
@@ -30,7 +30,7 @@ class BuyButton extends Component {
                 data-item-payment-interval="Week"
                 data-item-payment-interval-count="1">
                 ADD TO CART ({this.state.price}$)
-            </button>
+            </Button>
         );
     }
 }
